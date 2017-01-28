@@ -21,3 +21,5 @@ ob_start ();
 <?php endforeach;?>
 </table>
 
+<?php $contenido=ob_get_clean();?>
+<?php include 'layout.php'?>

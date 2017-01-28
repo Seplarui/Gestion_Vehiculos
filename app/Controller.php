@@ -66,10 +66,10 @@ class Controller {
 		$id = $_GET ['id'];
 		
 		$m = new Model ( Config::$bd_nombre, Config::$bd_usuario, Config::$bd_clave, Config::$bd_hostname );
-		$marca=$m->dameMarca($id);
-		$parametros=$marca;
+		$marca = $m->dameMarca ( $id );
+		$parametros = $marca;
 		
-		require __DIR__.'/templates/verMarca.php';
+		require __DIR__ . '/templates/verMarca.php';
 	}
 }
 ?>
