@@ -5,7 +5,7 @@ require_once __DIR__ . '/../app/Config.php';
 require_once __DIR__ . '/../app/Controller.php';
 require_once __DIR__ . '/../app/Model.php';
 
-// RUTAS
+// RUTAS --> Se define una tabla para asociar rutas en acciones de un controlador.
 
 $enrutamiento = array (
 		
@@ -31,7 +31,7 @@ $enrutamiento = array (
 		) 
 );
 
-// PARSEO DE LA RUTA
+// PARSEO DE LA RUTA Y CARGA DE LA ACCIÓN
 
 if (isset ( $_GET ['ctl'] )) {
 	if (isset ( $enrutamiento [$_GET ['ctl']] )) {
@@ -48,9 +48,9 @@ if (isset ( $_GET ['ctl'] )) {
 $controlador = $enrutamiento [$ruta];
 
 // SE EJECUTA EL CONTROLADOR ASOCIADO A LA RUTA
-
+// Comprueba si existe el método de la clase en el objeto dado por object.
 if (method_exists ( $controlador ['controller'], $controlador ['action'] )) {
-	call_user_func ( array (
+	call_user_func ( array ( // Un parámetro puede aceptar múltiples tipos pero no necesariamente todos.
 			new $controlador ['controller'] (),
 			$controlador ['action'] 
 	) );
