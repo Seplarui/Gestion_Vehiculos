@@ -16,7 +16,7 @@ class Model {
 			echo 'Error: ' . $e->getMessage ();
 		}
 	}
-	public function dameMarca() {
+	public function dameMarcas() {
 		$consulta = "select * from marcas";
 		
 		$resultado = $this->conexion->query ( $consulta );
