@@ -1,6 +1,6 @@
 <?php ob_start()?>
 
-<form name="formBusqueda" action="index.php?ctl=" buscar" method="post">
+<form name="formBusqueda" action="index.php?ctl=buscar" method="post">
 
 	<table>
 	
@@ -15,6 +15,7 @@
 </form>
 
 <?php foreach ($parametros['resultado'] as $marca):?>
+<table>
 <tr>
 
 <td><a href="index.php?ctl=ver&id=<?php echo $alimento['id']?>">
