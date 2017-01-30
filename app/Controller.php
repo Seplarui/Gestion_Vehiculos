@@ -9,7 +9,7 @@ class Controller {
 		require __DIR__ . '/templates/inicio.php';
 	}
 	public function listar() {
-		$m = new Model ( Config::$bd_nombre, Config::$bd_usuario, Config::$bd_clave, Config::$bd_hostname );
+		$m = new Model ( Config::$bd_nombre, Config::$bd_usuario, Config::$bd_pass, Config::$bd_hostname );
 		$parametros = array (
 				'marcas' => $m->consultarMarcas () 
 		);
@@ -20,7 +20,7 @@ class Controller {
 		$parametros = array (
 				'marca' => '' 
 		);
-		$m = new Model ( Config::$bd_nombre, Config::$bd_usuario, Config::$bd_clave, Config::$bd_hostname );
+		$m = new Model ( Config::$bd_nombre, Config::$bd_usuario, Config::$bd_pass, Config::$bd_hostname );
 		
 		if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 			if ($m->validarDatos ( $_POST ['marca'] )) {
@@ -41,13 +41,13 @@ class Controller {
 				'resultado' => '' 
 		);
 		
-		$m = new Model ( Config::$bd_nombre, Config::$bd_usuario, Config::$bd_clave, Config::$bd_hostname );
+		$m = new Model ( Config::$bd_nombre, Config::$bd_usuario, Config::$bd_pass, Config::$bd_hostname );
 		if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
 			$parametros ['marca'] = $_POST ['marca'];
 			$parametros ['resultado'] = $m->buscarMarcaPorMarca ( $_POST ['marca'] );
 		}
 		
-		require __DIR__ . '/template/buscarPorMarca.php';
+		require __DIR__ . '/templates/buscarPorMarca.php';
 	}
 	public function ver() {
 		if (! isset ( $_GET ['id'] )) {

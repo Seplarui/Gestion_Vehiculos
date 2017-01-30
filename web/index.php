@@ -31,7 +31,7 @@ $enrutamiento = array (
 // PARSEO DE LA RUTA
 
 if (isset ( $_GET ['ctl'] )) {
-	if (isset ( $enrutamiento ( $_GET ['ctl'] ) )) {
+	if (isset ( $enrutamiento [$_GET ['ctl']] )) {
 		$ruta = $_GET ['ctl'];
 	} else {
 		header ( 'Status: 404 Not Found' );

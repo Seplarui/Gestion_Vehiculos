@@ -21,7 +21,7 @@ class Model {
 		$cont = 0;
 		$filas = $resultado->fetchAll ( PDO::FETCH_OBJ );
 		foreach ( $filas as $fila ) {
-			$marca = new MarcaVehiculo ( $fila->id, $fila->marca_vehiculo );
+			$marca = new MarcaVehiculo( $fila->id, $fila->marca_vehiculo );
 			$marcas [$cont] = $marca;
 			$cont ++;
 		}
